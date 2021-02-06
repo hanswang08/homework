@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    <title> Great Cliffs of California </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <body id="home">
+        <header>
+            <div class="main-header"> 
+                <div class="logo">
+                    <img src="images/logo.png" alt="logo" width="125">
+                </div>
+                <nav class="main-menu">
+                    <ul>
+                        <li class="active"><a href="index.html">home</a></li>
+                        <li><a href="cliffs.html">Cliffs</li>
+                        <li><a href="activities.html">activities</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <section id="timeofday">
+                <span>Your Current Local Time:</span>
+                <span id="clock"></span>
+            </section>
+        </header>
+        <section>
+            <h2>Introducing California's Greatest Cliffs</h2>
+
+            <h3>What is so unique about California cliffs?</h3>
+            <p>
+                California cliffs are one of a kind in the United States where no cliffs are as magnificent and beautiful as them. And California is the only state that have cliffs that fronts all possible environments: sea, river, mountains and canyons. There are four such individual unique cliffs: West Cliff, North Cliff, East Cliff and South Cliff. All offer fantastic overlooking views, recreational areas, camping sites, wildlife watch spots and overnight cabins.
+            </p>
+            <h3>Where are these cliffs?</h3>
+            <p>Located within a 100 mile radius from Irvine, California, they can be reached by roads easily. The closest cliff to Irvine is West Cliff, which is the most popular and most visited.</p>
+ 
+                <div class="main-header">
+                    <div class="logo">
+
+                    </div>
+                    <nav>
+                        <ul id="album">
+                            <!-- <li class="partner"> -->
+                                <!-- <img src="images/partners/partner-bustour.png" alt="Partner Bus Tours">
+                            </li>
+                            <li class="partner">
+                                <img src="images/partners/partner-cabinrental.png" alt="Partner Cabin Rental">
+                            </li>
+                            <li class="partner">
+                                <img src="images/partners/partner-campingadv.png" alt="partner Camping Adventure">
+                            </li>
+                            <li class="partner">
+                                <img src="images/partners/partner-collegetours.png" alt="Partner College Tours">
+                                </li>
+                            <li class="partner">
+                                <img src="images/partners/partner-rentalbike.png" alt="Partner Bike Rentals">
+                                </li>
+                            <li class="partner">
+                                <img src="images/partners/partner-tourgroup.png" alt="Partner Tour Group">
+                            </li> -->
+                        </ul>
+                        <nav class="main-menu"></nav>
+                    </nav>
+                </div>
+        </section>
+        <footer>
+            <div id="nondisclaimer">
+                <div class="copy" >&copy ::GreatCliffs.com</div>
+                <div class="social" >
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                </div>
+            </div>
+            <div id="disclaimer"
+                &Copyright 2020 :: GreatCliffs.com> 
+                <p>This website is designed and created solely for educational purposes only at Westcliff University. All contents are not intended for any commercial gain or use.</p>
+            </div>
+        </footer>
+        <!--JavaScript Codes-->
+        <script>
+            //Creat a time data function
+            function currentTime() {
+                //Declare variables
+                var d = new Date(); //get current date
+                var hr = d.getHours();//get current hours
+                var min = d.getMinutes(); //get current minutes
+                var sec = d.getSeconds(); //Get current seconds
+                var ampm; //Declare empty variable to store AM or PM
+                var utchr = d.getUTCHours(); //Get current Greenwich Mean Time
+                var timeDiff; //to store time difference between GMT hour and Local hour
+                var adjTimeDiff; // To store time difference converted to positive number
+                var timeZone; // To store the 4 time zones(PT, MT, CT, ET)
+            // Add 0 to single digits for seconds
+            if (sec < 10) {
+                sec = "0" + sec;
+            }
+            //Add 0 to single digits for minutes
+            if (min < 10) {
+                min = "0" + min;
+            }
+            // Determine AM or PM string
+            if (hr == 12) {
+                ampm = "PM"; //Set to pm
+            } else if (hr > 12) {
+                hr -= 12; //Deduct 12 from hours greater than 12 (military time)
+                ampm = "PM"; //Set to PM
+            } else {
+                ampm = "AM";
+            }
+            if (utchr > 12) {utchr -=12
+            }
+            if (utchr - hr == 8 || utchr - hr == -8 ) {
+                timeZone = "PT";
+            } else if (utchr - hr == 7 || utchr - hr == -7 ) {
+                timeZone = "MT";
+            } else if (utchr - hr == 6 || utchr - hr == -6 ) {
+                timeZone = "CT";
+            } else if (utchr - hr == 5 || utchr - hr == -5 ) {
+                timeZone = "ET";
+            } else { timeZone = ""
+            }
+
+            // Assemble time format to display
+            var time = hr + ":" + min + ":" + sec + " " + ampm + " " + timeZone;
+            // Display current local time and time zone on HtML elements
+            document.getElementById("clock").innerText = time; //Adding Time
+            }
+            // Run time data function every 1 second
+            setInterval(currentTime, 1000) // setting timer
+            currentTime();
+        </script>
+        
+
+        <script>
+            var photos = []; //Declare an empty array to store image element
+            var fileNames = [];// Declare an empty element to store image file names
+            var imageList = []; //Declare an empty array to store html list that contain an image
+            var image; //Declare an empty variable to store the assembled image list codes
+            var openList = "<li id='photo'>"; //Declare a variable to contain open list tag
+            var closeList = "</li>"; //Declare a variable to contain close list tag
+            
+            for (var i=0; i<6; i++) {
+              fileNames.push("partner" + (i+1));
+              photos.push(`<img src=images/partners/${fileNames[i]}.png>`);
+              
+              image = openList + photos[i] + closeList;
+              imageList.push(image);
+            }
+            document.getElementById("album").innerHTML = imageList;
+          </script>
+        <!--end container-->
+
+    </body>
+</html>
